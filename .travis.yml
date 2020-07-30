@@ -1,9 +1,8 @@
 language: java
-install: skip
 
 os: linux
 dist: trusty
-jdk: oraclejdk14
+jdk: oraclejdk11
 
 script:
   - ./gradlew build --scan -s
