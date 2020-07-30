@@ -3,7 +3,7 @@ install: gradle wrapper --gradle-version 6.1
 
 os: linux
 dist: trusty
-jdk: oraclejdk11
+jdk: oraclejdk8
 
 script:
   - ./gradlew build --scan -s
