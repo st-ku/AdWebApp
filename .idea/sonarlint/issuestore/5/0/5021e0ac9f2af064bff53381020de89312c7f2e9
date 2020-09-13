@@ -1,0 +1,7 @@
+
+r
+java:S1488"_Immediately return this expression instead of assigning it to the temporary variable "success".(Ì™©N
+K	java:S106"9Replace this use of System.out or System.err by a logger.(™š£&
+Q	java:S106"9Replace this use of System.out or System.err by a logger.(œåĞüÿÿÿÿ
+a
+java:S2095"HUse try-with-resources or close this "JsonReader" in a "finally" clause.(ÛÔ˜øÿÿÿÿ
