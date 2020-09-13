@@ -4,4 +4,5 @@
 
 Simple Spring MVC webapp (JSP front-end), with usage Hibernate, Spring Security, Heroku pg db, Apache Tomcat. 
 
-Deployed on Heroku: <a href="https://adwebappby.herokuapp.com/">https://adwebappby.herokuapp.com/</a> (still in development)
+Deployed on Heroku: <a href="https://adwebappby.herokuapp.com/">https://adwebappby.herokuapp.com/</a> (still in development) Admin Login:Admin & Pass:Admin
+
