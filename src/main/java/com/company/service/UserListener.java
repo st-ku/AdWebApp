@@ -1,7 +1,6 @@
 package com.company.service;
 
 import com.company.entity.User;
-import com.company.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
 import org.springframework.security.authentication.event.InteractiveAuthenticationSuccessEvent;
@@ -14,16 +13,16 @@ import java.util.Calendar;
 @Service
 public class UserListener {
     @Autowired
-    UserRepository userRepository;
+    UserService userService;
     @Autowired
     HttpSession session;
 
     @EventListener
     public void onApplicationEvent(InteractiveAuthenticationSuccessEvent event) {
         UserDetails userDetails = (UserDetails) event.getAuthentication().getPrincipal();
-        User user = this.userRepository.findByUsername(userDetails.getUsername());
+        User user = this.userService.findUserByName(userDetails.getUsername());
         java.sql.Date currentDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
         user.setLastLoginDate(currentDate);
-        userRepository.save(user);
+        userService.userRepository.save(user);
     }
 }

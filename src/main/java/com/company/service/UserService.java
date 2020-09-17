@@ -25,18 +25,22 @@ public class UserService implements UserDetailsService {
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username);
+    public UserDetails loadUserByUsername(String username)  {
+        Optional<User> user = userRepository.findByUsername(username);
 
-        if (user == null) {
+        if (user.isEmpty()) {
             throw new UsernameNotFoundException("User not found");
         }
 
-        return user;
+        return user.orElse(new User());
     }
 
     public User findUserById(Long userId) {
         Optional<User> userFromDb = userRepository.findById(userId);
+        return userFromDb.orElse(new User());
+    }
+    public User findUserByName(String name) {
+        Optional<User> userFromDb = userRepository.findByUsername(name);
         return userFromDb.orElse(new User());
     }
 
@@ -45,12 +49,11 @@ public class UserService implements UserDetailsService {
     }
 
     public boolean saveUser(@Valid User user) {
-        User userFromDB = userRepository.findByUsername(user.getUsername());
+        Optional<User> userFromDB = userRepository.findByUsername(user.getUsername());
 
-        if (userFromDB != null) {        //if already exist check
+        if (userFromDB.isPresent()) {        //if already exist check
             return false;
         }
-
         user.setRoles(Collections.singleton(new Role(2L, "ROLE_USER")));
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
@@ -68,12 +71,10 @@ public class UserService implements UserDetailsService {
     }
 
 
-    public boolean deleteUser(Long userId) {
+    public void deleteUser(Long userId) {
         if (userRepository.findById(userId).isPresent()) {
             userRepository.deleteById(userId);
-            return true;
         }
-        return false;
     }
 
     public UserRepository getUserRepository() {
