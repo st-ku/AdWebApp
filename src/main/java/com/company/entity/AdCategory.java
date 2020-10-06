@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Component
 @Entity
-@Table(name = "AD_CATEGORY")
+@Table(name = "AD_CATEGORY" , schema = "old")
 public class AdCategory {
     @Id
     @Column(name = "CATEGORY_ID", unique = true, nullable = false)

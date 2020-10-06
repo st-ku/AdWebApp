@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Component
 @Entity
-@Table(name = "USER_ENTITY")
+@Table(name = "USER_ENTITY" , schema = "old" )
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
