@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Component
 @Entity
-@Table(name = "AD", schema = "old")
+@Table(name = "AD")
 public class Ad {
     @Id
     @Column(name = "AD_ID", unique = true, nullable = false)

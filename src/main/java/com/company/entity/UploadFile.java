@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Base64;
 
 @Entity
-@Table(name = "FILES_UPLOAD", schema = "old")
+@Table(name = "FILES_UPLOAD")
 public class UploadFile {
     private long id;
     private String fileName;
