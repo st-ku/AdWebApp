@@ -53,7 +53,7 @@
                 ${emailError}
         </div>
 
-        <div class="g-recaptcha" data-sitekey="${siteV2}"></div>
+        <div class="g-recaptcha" data-sitekey="6LfFZ8sZAAAAAAF3dH_Tlv6ipH5G730SbSMEgzAz"></div>
         <button type="submit" id="button1" disabled="disabled">Зарегистрироваться</button>
     </form:form>
     <a href="/">Главная</a>
